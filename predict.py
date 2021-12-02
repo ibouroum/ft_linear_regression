@@ -2,26 +2,28 @@ import  csv
 import  sys
 import  os.path
 
-value = []
-
-with open("indexes.csv", 'r') as csv_file :
-    try :
+thetas = []
+try :
+    with open("thetas.csv", 'r') as csv_file :
         dict_val = csv.reader(csv_file, delimiter = ",")
         for row in dict_val :
-            value.append(row)
-    except :
-        sys.exit("Error: File {:} cannot be read".format(csv_file))
+            thetas.append(row)
+        theta0 = thetas[0][0]
+        theta1 = thetas[0][1]
+except :
+    theta0 = 0
+    theta1 = 0
 
 check = False
 while check == False :
     mileage = input("Enter mileage: ")
     try :
-        number_mileage = float(mileage) - 0
-        if (number_mileage >= 0) :
+        mileage = float(mileage) - 0
+        if (mileage >= 0) :
             check = True
         else :
             print ("Error: negative mileage? Try again.")
     except :
         print ("Error: not a number, try again.")
-
-print (float(value[0][0]) + (float(value[0][1]) * number_mileage))
+price = float(theta0) + (float(theta1) * mileage)
+print('The price of this care is :', price, 'euros')
