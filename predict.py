@@ -1,6 +1,4 @@
 import  csv
-import  sys
-import  os.path
 
 thetas = []
 try :

@@ -1,7 +1,7 @@
 import  csv
 import  sys
 import  os.path
-from pandas import DataFrame
+import pandas as pd 
 import matplotlib.pyplot as plt
 
 class linear_regression:
@@ -12,8 +12,8 @@ class linear_regression:
         self.M = len(self.x)
         self.deltaX = max(self.x) - min(self.x)
         self.deltaY = max(self.y) - min(self.y)
-        self.dfX = DataFrame(self.normalisation(self.x), columns=['km'])
-        self.dfY = DataFrame(self.normalisation(self.y), columns=['price'])
+        self.dfX = pd.DataFrame(self.normalisation(self.x), columns=['km'])
+        self.dfY = pd.DataFrame(self.normalisation(self.y), columns=['price'])
         self.Xn = self.normalisation(self.x)
         self.Yn = self.normalisation(self.y)
         self.theta_0 = 0.0
